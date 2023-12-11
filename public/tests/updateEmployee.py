@@ -14,7 +14,7 @@ class UpdateEmployeeTest(unittest.TestCase):
         employee_id = 1  # Assuming an employee exists with this ID
 
         # Open the update page with the ID
-        self.driver.get(f"http://localhost/update.php?id={employee_id}")
+        self.driver.get(f"http://localhost:8080/update.php?id={employee_id}")
 
         # Update employee details
         name_field = self.driver.find_element(By.NAME, "name")
@@ -38,7 +38,7 @@ class UpdateEmployeeTest(unittest.TestCase):
         self.assertEqual(success_message.text, "Record updated successfully!")
 
         # Verify updated data on index page
-        self.driver.get("http://localhost/index.php")
+        self.driver.get("http://localhost:8080/index.php")
 
         # Get the updated employee row
         updated_row = self.driver.find_element_by_xpath(f"//*[@id='employee_table']/tbody/tr[@data-id='{employee_id}']")

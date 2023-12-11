@@ -25,7 +25,7 @@ class DeleteEmployeeTest(unittest.TestCase):
         self.assertEqual(success_message.text, "Record deleted successfully!")
 
         # Verify employee absence on index page
-        self.driver.get("http://localhost/index.php")
+        self.driver.get("http://localhost:8080/index.php")
 
         # Check if the employee row is present
         employee_rows = self.driver.find_elements_by_css_selector("tr.employee_row")

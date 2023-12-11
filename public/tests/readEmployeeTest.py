@@ -31,7 +31,7 @@ class ReadEmployeeTest(unittest.TestCase):
         back_button.click()
 
         # Verify redirection to index page
-        self.assertEqual(self.driver.current_url, "http://localhost/index.php")
+        self.assertEqual(self.driver.current_url, "http://localhost:8080/index.php")
 
     def tearDown(self):
         self.driver.quit()
