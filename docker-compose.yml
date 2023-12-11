@@ -1,0 +1,26 @@
+
+version: "3"
+services:
+  php:
+    build: './php/'
+  apache:
+    build: './apache/'
+    depends_on:
+      - php
+      - mysql
+    ports:
+      - "8080:80"
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "passwd"
+      MYSQL_DATABASE: "mydb"
+      MYSQL_USER: "user1"
+      MYSQL_PASSWORD: "passwd"
+volumes:
+    db_data:
+
+
